@@ -2,8 +2,7 @@ package com.skiyubon.docker.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author wuzhou
@@ -16,9 +15,21 @@ import javax.persistence.Id;
 public class Student {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
 
     private Integer age;
+
+    @Column(name = "parent_id")
+    private Long parentId;
+
+    @OneToOne
+    @JoinColumn(name = "parent_id",insertable = false,updatable = false,foreignKey = @ForeignKey(name = "none",value = ConstraintMode.NO_CONSTRAINT))
+    private Parent parent;
+
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
 }

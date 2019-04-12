@@ -1,7 +1,10 @@
 server:
-  port: 8201
+  port: 8021
 
 spring:
+  devtools:
+    restart:
+      additional-paths: src/main/java
   messages:
     basename: i18n.messages.messages_business
     encoding: UTF-8
@@ -29,3 +32,9 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: update
+  thymeleaf:
+    cache: false
+    enabled: true
+#  activemq:
+#    broker-url: tcp://localhost:61616
+#    password: 123

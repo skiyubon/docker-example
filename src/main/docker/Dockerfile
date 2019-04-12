@@ -23,7 +23,7 @@ RUN mkdir /cis \
 ADD docker-0.0.1-SNAPSHOT.jar /cis/app.jar
 
 # Export app port
-EXPOSE 8201
+EXPOSE 8021
 
 # Run app
 ENTRYPOINT ["java", "-jar", "-Dlogging.path=/cis/log", "/cis/app.jar"]

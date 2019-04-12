@@ -3,7 +3,10 @@ package com.skiyubon.docker.entity;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
 /**
  * @author wuzhou
@@ -16,6 +19,7 @@ import javax.persistence.Id;
 public class Teacher {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
@@ -23,4 +27,7 @@ public class Teacher {
     private String sex;
 
     private String level;
+
+    @OneToMany(mappedBy = "teacher")
+    private Set<Student> students;
 }
